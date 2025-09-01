@@ -1,0 +1,40 @@
+bilibili:
+  api:
+    cookie: "【B站cookie】"
+    csrf: "【cookie中的bili_jct字段的值】"
+spring:
+  application:
+    name: mcp-server-bilibili
+  ai:
+    mcp:
+      server:
+        name: ${spring.application.name}
+        version: 1.0.0
+    openai:
+      base-url: https://api.siliconflow.cn
+      api-key: 【硅基流动的key】
+      chat:
+        options:
+          model: 【模型名称】
+          top-p: 0.8
+          temperature: 0.7
+          max-tokens: 2048
+  main:
+    banner-mode: off
+# stdio 模式打开，sse 模式，注释掉。
+#    web-application-type: none
+
+logging:
+# stdio 模式打开，sse 模式，注释掉。
+#  pattern:
+#    console:
+  file:
+    name: data/log/${spring.application.name}.log
+
+server:
+  port: 8103
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
